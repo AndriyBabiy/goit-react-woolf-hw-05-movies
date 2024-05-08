@@ -3,7 +3,7 @@ import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Text } from 'components/Text/Text.styled';
 // import { Header } from 'components/Header/Header';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -29,9 +29,7 @@ const Home = () => {
           Something went wrong, try again later... 😥
         </Text>
       )}
-      <Suspense fallback={<Loader />}>
-        <MoviesList movies={movies} />
-      </Suspense>
+      <MoviesList movies={movies} />
       {/* {showMoreBtn && <Button onClick={handleClick}>Load more</Button>} */}
     </>
   );

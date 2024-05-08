@@ -3,7 +3,7 @@ import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { Text } from 'components/Text/Text.styled';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
@@ -47,9 +47,7 @@ const Movies = () => {
       {isLoading && <Loader />}
       {isError && <Text>Something went wrong...</Text>}
       {isEmpty && <Text>There don't seem to be any movies with that name</Text>}
-      <Suspense fallback={<Loader />}>
-        <MoviesList movies={movies} />
-      </Suspense>
+      <MoviesList movies={movies} />
     </>
   );
 };
